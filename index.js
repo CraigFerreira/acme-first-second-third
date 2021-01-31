@@ -49,7 +49,7 @@ document.addEventListener('click', (e)=>{
         console.log('move left', divToMove, moveFrom, moveTo)
         //remove the div from current parent
         moveFrom.removeChild(divToMove);
-        //add the element to the right side div
+        //add the element to the left side div
         moveTo.appendChild(divToMove);
     }
     else if (e.target.className==='move-right'){
