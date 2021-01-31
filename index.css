@@ -1,0 +1,50 @@
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+#lists{
+    display: flex;
+    justify-content: space-around;
+    height:600px;
+    width: 1200px;
+    border: 1px solid red;
+}
+
+.curr-list{
+ display: flex;
+ flex-direction: column;
+ /* justify-content: center; */
+ align-items: center;
+ height: 500px;
+ width: 300px;
+ border: 1px solid red;
+}
+
+.button{
+    height: 50px;
+    margin-top: 30px;
+    border: 1px solid blue
+}
+
+.title{
+    height:50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid green;
+}
+
+.list-info{
+    height: 350px;
+    width:60%;
+    border: 1px solid orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .list-info{
+    height: 30px;
+    width: 50px
+} */
