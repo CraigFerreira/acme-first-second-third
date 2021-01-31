@@ -1,9 +1,3 @@
-// const express = require('express');
-// const app= express();
-// const port=3000;
-// const path= require('path');
-
-// app.use('/acme-first-second-third', express.static(path.join(__dirname, 'acme-first-second-third')))
 
 let first= document.getElementById('list1');
 let second= document.getElementById('list2');
@@ -33,7 +27,8 @@ function createPeople(){
     let currlist;
     for(let val of users){
        currList= document.getElementById(val.slot)
-       currList.innerHTML+=`<div class='list-info'>${val.name}</div>`
+       currList.innerHTML+=`<div class='list-info' style='height:350px; width:200px; border:1px solid orange;'>${val.name}</div>`
+
     }
     // console.log(currList)
 }
@@ -87,31 +82,3 @@ document.addEventListener('click', (e)=>{
 
 
 
-
-
-
-// document.addEventListener('click', (e)=>{
-//     let divToMove=e.target;
-//     let moveFrom= e.target.parentElement
-//     let moveHere=(divToMove.parentElement.nextElementSibling)
-//     // console.log(divToMove, moveFrom, moveHere)
-//     // console.log(moveHere, divToMove);
-//     moveHere.appendChild(divToMove);
-// })
-
-// button1.addEventListener('click', (e)=>{
-//     let selected=e.target;
-//     if(selected.className==='move-left'){
-//         // console.log(obj)
-
-
-//     }
-//     // else if(selected.className==="move-right") console.log(selected.className);
-// })
-
-// function moveElement(currId, direction, divToMove){
-//     if(currId==='first' && direction==='move-left'){
-//         // console.log(selected)
-//         selected.parentElement.removeChild(divToMove)
-//     }
-// }
