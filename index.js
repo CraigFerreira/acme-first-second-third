@@ -27,7 +27,7 @@ function createPeople(){
     let currlist;
     for(let val of users){
        currList= document.getElementById(val.slot)
-       currList.innerHTML+=`<div class='list-info' style='height:350px; width:200px; border:1px solid orange;'>${val.name}</div>`
+       currList.innerHTML+=`<div class='list-info' style='height:100px; width:200px; border:1px solid orange;'>${val.name}</div>`
 
     }
     // console.log(currList)
@@ -59,6 +59,7 @@ document.addEventListener('click', (e)=>{
         moveFrom.removeChild(divToMove);
         //add the element to the right side div
         moveTo.appendChild(divToMove);
+        divToMove.display='inline'
     }
 })
 
