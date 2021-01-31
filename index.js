@@ -8,9 +8,11 @@
 let first= document.getElementById('list1');
 let second= document.getElementById('list2');
 let third= document.getElementById('list3')
-let button1=document.getElementById('1')
-let button2=document.getElementById('2')
-let button3=document.getElementById('3')
+let disabledLeftButton= document.getElementById('disabled-left');
+disabledLeftButton.disabled=true;
+let disabledRightButton=document.getElementById('disabled-right')
+disabledRightButton.disabled=true;
+
 
 
 
@@ -36,28 +38,76 @@ function createPeople(){
     // console.log(currList)
 }
 
-let divToMove;
-let moveFrom;
-let moveHere;
+let divToMove=null;
+let moveFrom=null;
+let moveTo=null;
+
 
 document.addEventListener('click', (e)=>{
-    let divToMove=e.target;
-    let moveFrom= e.target.parentElement
-    let moveHere=(divToMove.parentElement.nextElementSibling)
-    // console.log(divToMove, moveFrom, moveHere)
-    // console.log(moveHere, divToMove);
-    moveHere.appendChild(divToMove);
-})
-
-button1.addEventListener('click', (e)=>{
-    let selected=e.target;
-    if(selected.className==='move-left'){
-        // console.log(obj)
-
-
+    if(e.target.className==='list-info') {
+        divToMove=e.target;
+        moveFrom=e.target.parentElement;
+        console.log(divToMove, moveFrom)
     }
-    // else if(selected.className==="move-right") console.log(selected.className);
+    else if(e.target.className==='move-left'){
+        moveTo=moveFrom.previousElementSibling
+        console.log('move left', divToMove, moveFrom, moveTo)
+        //remove the div from current parent
+        moveFrom.removeChild(divToMove);
+        //add the element to the right side div
+        moveTo.appendChild(divToMove);
+    }
+    else if (e.target.className==='move-right'){
+        moveTo=moveFrom.nextElementSibling;
+        console.log('move right', divToMove,'move from', moveFrom, 'move to',moveTo)
+        //remove the div from current parent
+        moveFrom.removeChild(divToMove);
+        //add the element to the right side div
+        moveTo.appendChild(divToMove);
+    }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener('click', (e)=>{
+//     let divToMove=e.target;
+//     let moveFrom= e.target.parentElement
+//     let moveHere=(divToMove.parentElement.nextElementSibling)
+//     // console.log(divToMove, moveFrom, moveHere)
+//     // console.log(moveHere, divToMove);
+//     moveHere.appendChild(divToMove);
+// })
+
+// button1.addEventListener('click', (e)=>{
+//     let selected=e.target;
+//     if(selected.className==='move-left'){
+//         // console.log(obj)
+
+
+//     }
+//     // else if(selected.className==="move-right") console.log(selected.className);
+// })
 
 // function moveElement(currId, direction, divToMove){
 //     if(currId==='first' && direction==='move-left'){
