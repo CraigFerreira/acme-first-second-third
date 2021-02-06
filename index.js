@@ -30,37 +30,45 @@ function createPeople(){
        currList.innerHTML+=`<div class='list-info' style='height:100px; width:200px; border:1px solid orange;'>${val.name}</div>`
 
     }
-    // console.log(currList)
 }
 
 let divToMove=null;
 let moveFrom=null;
 let moveTo=null;
-
+let divsToMove=[];
 
 document.addEventListener('click', (e)=>{
     if(e.target.className==='list-info') {
         divToMove=e.target;
-        moveFrom=e.target.parentElement;
-        console.log(divToMove, moveFrom)
+        divToMove.style.background='red';
+        divsToMove.push(divToMove)   
     }
+
     else if(e.target.className==='move-left'){
-        moveTo=moveFrom.previousElementSibling
-        console.log('move left', divToMove, moveFrom, moveTo)
-        //remove the div from current parent
-        moveFrom.removeChild(divToMove);
-        //add the element to the left side div.
-        moveTo.appendChild(divToMove);
+        for(let div of divsToMove){
+            moveFrom=div.parentElement;
+            moveTo=div.parentElement.previousElementSibling
+            moveFrom.removeChild(div);
+            moveTo.appendChild(div);
+            div.display='inline'
+            div.style.background='white';
+        }
+        divsToMove=[];
+        
     }
-    else if (e.target.className==='move-right'){
-        moveTo=moveFrom.nextElementSibling;
-        console.log('move right', divToMove,'move from', moveFrom, 'move to',moveTo)
-        //remove the div from current parent
-        moveFrom.removeChild(divToMove);
-        //add the element to the right side div
-        moveTo.appendChild(divToMove);
-        divToMove.display='inline'
+
+        else if (e.target.className==='move-right'){
+        for(let div of divsToMove){
+            moveFrom=div.parentElement;
+            moveTo=div.parentElement.nextElementSibling
+            moveFrom.removeChild(div);
+            moveTo.appendChild(div);
+            div.display='inline'
+            div.style.background='white';
+        }
+        divsToMove=[];
     }
+
 })
 
 
