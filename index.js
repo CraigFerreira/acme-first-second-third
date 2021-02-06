@@ -28,14 +28,10 @@ function createPeople(){
     let currlist;
     for(let val of users){
        currList= document.getElementById(val.slot)
-    //    currList.innerHTML+=`<div class='list-info' style='height:100px; width:200px; border:1px solid orange;'>${val.name}</div>`
         let currEl=document.createElement('div');
         currEl.innerText=val.name;
         currEl.classList='list-info';
         currList.appendChild(currEl)
-        // currEl.classList='list-info';
-        // currEl.style='height:100px; width:200px; border:1px solid orange;'
-        // currlist.appendChild(currEl)
     }
 }
 
